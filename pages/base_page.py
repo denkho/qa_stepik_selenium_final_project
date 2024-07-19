@@ -27,6 +27,13 @@ class BasePage():
             print("Cannot click on the element which is not on the page")
 
 
+    def get_element_text(self, how, what):
+        try:
+            return self.browser.find_element(how, what).text
+        except NoSuchElementException:
+            print("There is not such element or text")
+
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]

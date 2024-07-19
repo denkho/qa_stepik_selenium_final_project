@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import BasketNotifications, ProductPageLocators
 
 
 class ProductPage(BasePage):
@@ -74,3 +74,37 @@ class ProductPage(BasePage):
         # Добавление товара в корзину кликом по кнопке "Добавить в корзину"
         self.click_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
     
+
+    def get_product_name(self):
+        # Передает название продукта с его страницы
+        return self.get_element_text(*ProductPageLocators.TITLE)
+    
+
+    def get_product_name_from_basket_notification(self):
+        # Получает название продукта добавленного в корзину из уведомления о добавлении 
+        # на странице продукта
+        return self.get_element_text(*BasketNotifications.PRODUCT_TITLE_ADDED_TO_BASKET)
+
+    @staticmethod
+    def price_convertion_str_to_float(price_raw):
+        # Преобразует строку с ценой и валютой в десятичную дробь
+        price = ''
+        for element in price_raw:
+            if element.isdigit() or element == '.' or element == ',':
+                if element == ',':
+                    price += '.'
+                else:
+                    price += element
+        return float(price)
+
+
+    def get_product_price(self):
+        # Передает цену продукта со его страницы
+        return self.price_convertion_str_to_float(self.get_element_text(*ProductPageLocators.PRICE))
+
+    
+    def get_product_price_from_basket_notification(self):
+        # Передает стоимость товаров в корзине из уведомления о добавлении в корзину
+        # со страницы товара
+        return self.price_convertion_str_to_float(self.get_element_text(*BasketNotifications.BASKET_TOTAL_PRICE))
+         
