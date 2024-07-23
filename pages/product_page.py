@@ -1,3 +1,4 @@
+import pytest
 from .base_page import BasePage
 from .locators import BasketNotifications, ProductPageLocators
 
@@ -108,3 +109,18 @@ class ProductPage(BasePage):
         # со страницы товара
         return self.price_convertion_str_to_float(self.get_element_text(*BasketNotifications.BASKET_TOTAL_PRICE))
          
+
+    def should_be_success_message(self):
+        self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is not presented, but should be"
+
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+    
+
+    def should_be_disapeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is not disappeared, but should"
+        

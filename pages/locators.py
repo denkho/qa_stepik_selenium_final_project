@@ -21,7 +21,7 @@ class ProductPageLocators():
     DESCRIPTION_TEXT = (By.CSS_SELECTOR, "#product_description+p")
     INFORMATION = (By.CSS_SELECTOR, ".table.table-striped")
     REVIEWS = (By.XPATH, "//section/div[@id='reviews']")
-
+    SUCCESS_MESSAGE = (By.CLASS_NAME, "alert-success")
 
 class BasketNotifications():
     PRODUCT_TITLE_ADDED_TO_BASKET = (By.CSS_SELECTOR, ".alertinner>strong")
