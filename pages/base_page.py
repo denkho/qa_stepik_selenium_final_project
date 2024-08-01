@@ -50,10 +50,29 @@ class BasePage():
     
 
     def click_element(self, how, what):
+        """
+        Функция для клика по элементу.
+        how - как ищется селектор; 
+        what - локатор
+        """
         try:
             self.browser.find_element(how, what).click()
         except NoSuchElementException:
             print("Cannot click on the element which is not on the page")
+
+
+
+    def add_text_to_input_field(self, how, what, data):
+        """
+        Функция для заполнения поля ввода.
+        how - как ищется селектор; 
+        what - локатор;
+        data - что вводится в поле ввода
+        """
+        try:
+            self.broser.find_element(how, what).send_keys(data)
+        except NoSuchElementException:
+            print("There is not such element to fill in the data into")
 
 
     def get_element_text(self, how, what):
@@ -62,6 +81,11 @@ class BasePage():
         except NoSuchElementException:
             print("There is not such element or text")
 
+
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                    " probably unauthorised user"
 
     def go_to_basket_page(self):
         try:
