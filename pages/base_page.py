@@ -63,6 +63,13 @@ class BasePage():
             print("There is not such element or text")
 
 
+    def go_to_basket_page(self):
+        try:
+            self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
+        except NoSuchElementException:
+            print("There is no basket button or it has been changed")
+
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
