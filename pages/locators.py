@@ -13,11 +13,11 @@ class MainPageLocators():
 
 
 class LoginPageLocators():
-    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
-    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
-    REGISTRATION_EMAIL = (By.ID, "#id_registration-email")
-    REGISTRATION_PASSWORD_1 = (By.ID, "#id_registration-password1")
-    REGISTRATION_PASSWORD_2 = (By.ID, "#id_registration-password1")
+    LOGIN_FORM = (By.ID, "login_form")
+    REGISTER_FORM = (By.ID, "register_form")
+    REGISTRATION_EMAIL = (By.ID, "id_registration-email")
+    REGISTRATION_PASSWORD_1 = (By.ID, "id_registration-password1")
+    REGISTRATION_PASSWORD_2 = (By.ID, "id_registration-password2")
     REGISTRATION_BUTTON = (By.XPATH, "//button[@value='Register']")
 
 

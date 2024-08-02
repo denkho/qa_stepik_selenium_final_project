@@ -27,9 +27,15 @@ class LoginPage(BasePage):
 
 
     def register_new_user(self, email, password):
-        # Регистрация нового пользователя
+        """Регистрация нового пользователя
+
+        Args:
+            email (str): fake email for test
+            password (str): fake password for test
+        """        
         self.click_element(*BasePageLocators.LOGIN_LINK)
         self.add_text_to_input_field(*LoginPageLocators.REGISTRATION_EMAIL, email)
         self.add_text_to_input_field(*LoginPageLocators.REGISTRATION_PASSWORD_1, password)
         self.add_text_to_input_field(*LoginPageLocators.REGISTRATION_PASSWORD_2, password)
+        self.click_element(*LoginPageLocators.REGISTRATION_BUTTON)
 

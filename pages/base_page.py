@@ -8,7 +8,7 @@ class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
-        # self.browser.implicitly_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
 
     def open(self):
@@ -70,7 +70,7 @@ class BasePage():
         data - что вводится в поле ввода
         """
         try:
-            self.broser.find_element(how, what).send_keys(data)
+            self.browser.find_element(how, what).send_keys(data)
         except NoSuchElementException:
             print("There is not such element to fill in the data into")
 

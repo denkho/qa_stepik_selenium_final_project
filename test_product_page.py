@@ -1,3 +1,4 @@
+import time
 import pytest
 
 from .pages.login_page import LoginPage
@@ -5,7 +6,18 @@ from .pages.product_page import ProductPage
 from .pages.ulrs import Urls
 
 
-class TestUserAddToBasketFromProductPage:
+class TestUserAddToBasketFromProductPage():
+
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        page = LoginPage(browser, Urls.BASE_URL)
+        page.open()
+        email = str(time.time()) + "@fakemail.org"
+        password = '12345678abs'
+        page.register_new_user(email, password)
+        page.should_be_authorized_user()
+        
+
     def test_user_cant_see_success_message(self, browser):
         page = ProductPage(browser, Urls.PRODUCT_CODERS_AT_WORK)
         page.open()
