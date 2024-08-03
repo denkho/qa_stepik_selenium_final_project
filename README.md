@@ -5,6 +5,8 @@
 * PyTest
 * Selenium
 
+Проект выполнен в рамках курса "Автоматизация тестирования с помощью Selenium и Python" https://stepik.org/course/575
+
 Перед запуском тестов необходимо установить зависимости из файла requirements.txt с помощью команды
 ```
 pip install -r requirements.txt
