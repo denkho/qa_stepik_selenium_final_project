@@ -1,5 +1,5 @@
 class Urls():
-    BASE_URL = "http://selenium1py.pythonanywhere.com/"
+    BASE_URL = "http://selenium1py.pythonanywhere.com"
     
     CATALOGUE_URL = BASE_URL + "/catalogue"
     PRODUCT_THE_SHELLCODERS_HANDBOOK_URL = CATALOGUE_URL + "/the-shellcoders-handbook_209"
@@ -7,3 +7,5 @@ class Urls():
 
     PROMO_NEW_YEAR_URL = "/?promo=newYear"
     PROMO_NEW_YEAR_2019_URL = "/?promo=newYear2019"
+
+    BASKET_URL = BASE_URL + "basket/"

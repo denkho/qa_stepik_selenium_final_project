@@ -37,3 +37,8 @@ class ProductPageLocators():
 class BasketNotifications():
     PRODUCT_TITLE_ADDED_TO_BASKET = (By.CSS_SELECTOR, ".alertinner>strong")
     BASKET_TOTAL_PRICE = (By.CSS_SELECTOR, ".alertinner>p>strong")
+
+
+class BasketPageLocators():
+    BASKET_HEADER_TEXT = (By.CSS_SELECTOR, ".page-header.action > h1")
+    BASKET_IS_EMPTY_TEXT = (By.ID, "content_inner")
